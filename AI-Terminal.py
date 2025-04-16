@@ -146,8 +146,8 @@ while True:
                 if available_tools.get(tool_name):
                     output = available_tools[tool_name]["fn"](tool_input)
                     messages.append(json.dumps({"step": "observe", "output": output}))
-                    break
+                    exit(0)
 
             if parsed_output.get("step") == "output":
                 print(f"🤖: {parsed_output.get('content')}")
-                break
+                exit(0)
